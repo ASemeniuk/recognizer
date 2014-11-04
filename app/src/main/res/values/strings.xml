@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Recognizer</string>
+
+    <string name="pick_chooser">Take or pick photo:</string>
+    <string name="pick_success">Loaded!</string>
+    <string name="pick_failure">Not loaded</string>
+    <string name="pick_invalid">Invalid path</string>
+
+    <string name="seek_hue">H</string>
+    <string name="seek_saturation">S</string>
+    <string name="seek_value">V</string>
+
+    <string name="load">Load</string>
+    <string name="x">X</string>
+    <string name="process">Process</string>
+    <string name="invert">Invert</string>
+    <string name="reset">Reset</string>
+    <string name="close">Close</string>
+
+    <string name="comma">,</string>
+</resources>

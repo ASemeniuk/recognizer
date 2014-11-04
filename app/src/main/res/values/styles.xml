@@ -1,0 +1,25 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Holo.NoActionBar.Fullscreen">
+    </style>
+
+    <style name="Button">
+        <item name="android:background">@drawable/button</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Button.Panel">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Button.Close">
+        <item name="android:gravity">bottom</item>
+    </style>
+
+
+</resources>
