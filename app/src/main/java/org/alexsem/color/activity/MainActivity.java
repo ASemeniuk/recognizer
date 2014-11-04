@@ -245,6 +245,20 @@ public class MainActivity extends Activity {
 
         //--- Second screen ---
         mCloseColor = (CloseColorView) findViewById(R.id.main_close_color);
+        mCloseColor.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        Integer color = mCloseColor.getColorAt((int) event.getX(), ((int) event.getY()));
+                        if (color != null) {
+                            setCloseColor(color);
+                        }
+                        return true;
+                }
+                return false;
+            }
+        });
         mCloseSaturationSeek = (SeekBar) findViewById(R.id.main_close_saturation_seek);
         mCloseSaturationSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

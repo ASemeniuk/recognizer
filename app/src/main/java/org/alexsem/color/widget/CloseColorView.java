@@ -67,6 +67,26 @@ public class CloseColorView extends View {
     }
 
     /**
+     * Get calculated color in specified coordinates
+     * @param x X-coordinate
+     * @param y Y-coordinate
+     * @return calculated color or null if out of bounds
+     */
+    public Integer getColorAt(int x, int y) {
+        if (mColors == null || x < 0 || y < 0 || x > getMeasuredWidth() || y > getMeasuredHeight()) {
+            return null;
+        }
+        int w = x / Math.round((float) getMeasuredWidth() / SECTIONS_HUE);
+        int h = y / Math.round((float) getMeasuredHeight() / SECTIONS_VALUE);
+        if (w >= mColors.length || h >= mColors[w].length) {
+            return null;
+        }
+        return mColors[w][h];
+    }
+
+    //----------------------------------------------------------------------------------------------
+
+    /**
      * Calculate data array
      */
     private void calculate() {
@@ -88,7 +108,7 @@ public class CloseColorView extends View {
         float valueOffset = 1f - RANGE_VALUE;
         float valueSect = RANGE_VALUE / SECTIONS_VALUE;
 
-        mCurrentValueSect = Math.max(0, SECTIONS_VALUE - Math.round((hsv[2] - valueOffset) / valueSect) - 1);
+        mCurrentValueSect = Math.max(0, SECTIONS_VALUE - (int) ((hsv[2] - valueOffset) / valueSect) - 1);
         mCurrentHueSect = (SECTIONS_HUE + 1) / 2 - 1;
         mColors = new int[SECTIONS_HUE][SECTIONS_VALUE];
 
