@@ -313,7 +313,7 @@ public class MainActivity extends Activity {
      * Start Immersive mode
      */
     private void immerse() {
-        mImage.setSystemUiVisibility(
+        mFlipper.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN

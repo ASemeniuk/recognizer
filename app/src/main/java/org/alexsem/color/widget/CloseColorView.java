@@ -12,7 +12,7 @@ import android.view.View;
  */
 public class CloseColorView extends View {
 
-    private final float RANGE_HUE = 63f;
+    private final float RANGE_HUE = 54f;
     private final float RANGE_VALUE = 0.8f;
     private final int SECTIONS_HUE = 9;
     private final int SECTIONS_VALUE = 8;
