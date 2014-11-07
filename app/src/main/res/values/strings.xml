@@ -15,6 +15,7 @@
     <string name="process">Process</string>
     <string name="invert">Invert</string>
     <string name="reset">Reset</string>
+    <string name="full">Full</string>
     <string name="close">Close</string>
 
     <string name="comma">,</string>

@@ -294,6 +294,12 @@ public class MainActivity extends Activity {
                 setCloseColor(mPanelPreviewColor);
             }
         });
+        findViewById(R.id.main_close_full).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCloseColor.toggleFull();
+            }
+        });
         findViewById(R.id.main_close_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

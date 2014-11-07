@@ -23,6 +23,7 @@ public class CloseColorView extends View {
     private int[][] mColors;
 
     private boolean isMeasurementChanged = false;
+    private boolean isFull = false;
 
     private Paint mPaint;
 
@@ -63,6 +64,15 @@ public class CloseColorView extends View {
     public void setColor(int color) {
         mStartingColor = color;
         isMeasurementChanged = true;
+        isFull = false;
+        invalidate();
+    }
+
+    /**
+     * Set full-screen display if it is not yet set or reset it if set
+     */
+    public void toggleFull() {
+        isFull = !isFull;
         invalidate();
     }
 
@@ -137,6 +147,15 @@ public class CloseColorView extends View {
         }
 
         if (mColors == null) { //Nothing to draw
+            return;
+        }
+
+        //--- Full-screen display ---
+        if (isFull) {
+            mPaint.setStrokeWidth(0f);
+            mPaint.setStyle(Paint.Style.FILL);
+            mPaint.setColor(mStartingColor);
+            canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), mPaint);
             return;
         }
 

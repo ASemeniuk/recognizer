@@ -331,6 +331,15 @@
                 android:layout_weight="1"/>
 
             <org.alexsem.color.widget.VerticalTextView
+                android:id="@+id/main_close_full"
+                style="@style/Button.Close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="0"
+                android:text="@string/full"/>
+
+            <org.alexsem.color.widget.VerticalTextView
                 android:id="@+id/main_close_close"
                 style="@style/Button.Close"
                 android:layout_width="wrap_content"
