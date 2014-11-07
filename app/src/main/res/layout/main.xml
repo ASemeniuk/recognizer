@@ -14,8 +14,7 @@
         <org.alexsem.color.widget.TargetedImageView
             android:id="@+id/main_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher"/>
+            android:layout_height="match_parent"/>
 
         <TextView
             android:id="@+id/main_load"

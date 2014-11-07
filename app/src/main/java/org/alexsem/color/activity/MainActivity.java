@@ -87,6 +87,9 @@ public class MainActivity extends Activity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                     case MotionEvent.ACTION_MOVE:
+                        if (mImage.getDrawable() == null) {
+                            return false;
+                        }
                         mImage.setTarget(event.getX(), event.getY());
                         if (event.getX() < SCREEN_WIDTH / 2) {
                             mPanelLeft.setVisibility(View.VISIBLE);
@@ -355,7 +358,7 @@ public class MainActivity extends Activity {
      * @param path Path to the file
      */
     private void loadImage(String path) {
-        if (path != null) {
+        if (path != null && new File(path).exists()) {
             mImagePath = path;
             if (mImageBitmap != null) {
                 mImageBitmap.recycle();
@@ -367,9 +370,11 @@ public class MainActivity extends Activity {
                 Toast.makeText(this, R.string.pick_success, Toast.LENGTH_SHORT).show();
             } catch (Throwable ex) {
                 Toast.makeText(this, R.string.pick_failure, Toast.LENGTH_LONG).show();
+                getSharedPreferences(getPackageName(), MODE_PRIVATE).edit().remove("path").commit();
             }
         } else {
             Toast.makeText(this, R.string.pick_invalid, Toast.LENGTH_LONG).show();
+            getSharedPreferences(getPackageName(), MODE_PRIVATE).edit().remove("path").commit();
         }
     }
 
