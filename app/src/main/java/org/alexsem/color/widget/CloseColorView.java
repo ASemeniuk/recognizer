@@ -83,7 +83,7 @@ public class CloseColorView extends View {
      * @return calculated color or null if out of bounds
      */
     public Integer getColorAt(int x, int y) {
-        if (mColors == null || x < 0 || y < 0 || x > getMeasuredWidth() || y > getMeasuredHeight()) {
+        if (isFull || mColors == null || x < 0 || y < 0 || x > getMeasuredWidth() || y > getMeasuredHeight()) {
             return null;
         }
         int w = x / Math.round((float) getMeasuredWidth() / SECTIONS_HUE);

@@ -310,7 +310,6 @@ public class MainActivity extends Activity {
         //--- Initialization ---
         mImagePath = getSharedPreferences(getPackageName(), MODE_PRIVATE).getString("path", null);
         if (mImagePath != null) {
-            immerse();
             loadImage(mImagePath);
         } else {
             mLoad.performClick();
@@ -318,10 +317,9 @@ public class MainActivity extends Activity {
 
     }
 
-    /**
-     * Start Immersive mode
-     */
-    private void immerse() {
+    @Override
+    protected void onResume() {
+        super.onResume();
         mFlipper.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -387,7 +385,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        immerse();
         if (requestCode == REQUEST_PICK_IMAGE && resultCode == RESULT_OK) {
             if (data != null) {
                 Uri uri = data.getData();
